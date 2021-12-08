@@ -1,7 +1,7 @@
 import  React from 'react';
 import './HeroImage.css';
 
-const heroImage = (props)=>{
+const HeroImage = (props)=>{
     return(
         <div>
             HeroImage
@@ -9,4 +9,4 @@ const heroImage = (props)=>{
     )
 }
 
-export default heroImage;
+export default HeroImage;
