@@ -2,7 +2,7 @@ import  React from 'react';
 import Header from '../elements/Header/Header';
 import  Home from '../Home/Home';
 
-const App = () => {
+const app = () => {
     return (
         <div>
             <Header/>
@@ -11,4 +11,4 @@ const App = () => {
     )
 }
 
-export default App;
+export default app;
