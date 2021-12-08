@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieThumb.css'
 
-const MovieThumb = (props)=>{
+const movieThumb = (props)=>{
     return (
         <div>
             MovieThumb
@@ -9,4 +9,4 @@ const MovieThumb = (props)=>{
     )
 }
 
-export default  MovieThumb;
+export default  movieThumb;

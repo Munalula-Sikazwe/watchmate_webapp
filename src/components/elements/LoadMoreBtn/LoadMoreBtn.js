@@ -1,11 +1,11 @@
 import React from 'react';
 import './LoadMoreBtn.css'
 
-const LoadMoreBtn = (props)=>{
+const loadMoreBtn = (props)=>{
 return(
     <div>
         LoadMoreBtn
     </div>
 )
 }
-export  default LoadMoreBtn;
+export  default loadMoreBtn;
