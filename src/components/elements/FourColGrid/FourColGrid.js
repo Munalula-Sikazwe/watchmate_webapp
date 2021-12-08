@@ -1,5 +1,5 @@
 import React from 'react';
-import 'FourColGrid.css';
+import './FourColGrid.css';
 
 const fourColGrid = (props)=>{
     return(
