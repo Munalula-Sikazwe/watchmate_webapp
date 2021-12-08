@@ -1,7 +1,7 @@
 import React from 'react';
 import 'FourColGrid.css';
 
-const FourColGrid = (props)=>{
+const fourColGrid = (props)=>{
     return(
         <div>
             FourColGrid
@@ -9,4 +9,4 @@ const FourColGrid = (props)=>{
     )
 }
 
-export default FourColGrid;
+export default fourColGrid;
