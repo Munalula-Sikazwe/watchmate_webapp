@@ -8,4 +8,4 @@ const Spinner = ()=>{
         </div>
     )
 }
-export default spinner;
+export default Spinner;
