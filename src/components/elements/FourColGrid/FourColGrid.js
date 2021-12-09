@@ -3,8 +3,9 @@ import './FourColGrid.css';
 
 const fourColGrid = (props)=>{
     return(
-        <div>
-            FourColGrid
+        <div className='rmdb-grid'>
+            {props.header && !props.loading ? <div><h1>{props.header}</h1></div>:null}
+
         </div>
     )
 }
