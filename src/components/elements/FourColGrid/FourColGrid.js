@@ -2,12 +2,14 @@ import React from 'react';
 import './FourColGrid.css';
 
 const fourColGrid = (props) => {
-    const renderElements = ()=>{
-        const gridElements = props.children.map((elements,i)=>{
-            <div key={i} className='rmdb-grid-element'>
+    const renderElements = () => {
+        const gridElements = props.children.map((elements, i) => {
+            return (<div key={i} className='rmdb-grid-element'>
                 {elements}
-            </div>
-        })
+            </div>)
+
+        });
+        return gridElements;
     }
     return (
         <div className='rmdb-grid'>
