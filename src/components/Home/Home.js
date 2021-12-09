@@ -32,7 +32,11 @@ class Home extends Component {
                 this.setState({
                     movies:[...this.state.movies,result.results],
                     heroImage: this.state.heroImage || result.results[0],
-                    loading:false
+                    loading:false,
+                    currentPage: result.page,
+                    totalPages:result.total_pages,
+
+
                 })
             })
 
