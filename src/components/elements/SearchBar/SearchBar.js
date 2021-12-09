@@ -15,6 +15,7 @@ class SearchBar extends Component {
 
         this.timeout = setTimeout(
             ()=>{
+
                 this.props.callback(this.state.value)
             },500
         );
