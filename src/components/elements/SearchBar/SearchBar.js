@@ -9,7 +9,7 @@ class SearchBar extends Component {
     }
     doSearch = (event)=>{
         this.setState({
-            value: this.event.target.value
+            value: event.target.value
         })
         clearTimeout(this.timeout);
 
