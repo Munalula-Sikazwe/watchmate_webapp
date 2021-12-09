@@ -1,11 +1,20 @@
 import React from 'react';
 import './FourColGrid.css';
 
-const fourColGrid = (props)=>{
-    return(
+const fourColGrid = (props) => {
+    const renderElements = ()=>{
+        const gridElements = props.children.map((elements,i)=>{
+            <div key={i} className='rmdb-grid-element'>
+                {elements}
+            </div>
+        })
+    }
+    return (
         <div className='rmdb-grid'>
-            {props.header && !props.loading ? <div><h1>{props.header}</h1></div>:null}
-
+            {props.header && !props.loading ? <div><h1>{props.header}</h1></div> : null}
+            <div className='rmdb-grid-content'>
+                {renderElements()}
+            </div>
         </div>
     )
 }
