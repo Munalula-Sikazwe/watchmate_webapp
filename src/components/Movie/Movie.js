@@ -18,7 +18,6 @@ class Movie extends Component {
                 <Navigation/>
                 <MovieInfo/>
                 <MovieInfoBar/>
-                <FourColGrid/>
                 <Spinner/>
             </div>
         )
