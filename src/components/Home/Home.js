@@ -101,9 +101,11 @@ class Home extends Component {
                         })}
                     </FourColGrid>
                 </div>
+                { this.state.loading? <Spinner/> : null}
 
-                <Spinner/>
-                <LoadMoreBtn onClick={this.loadMoreItems}/>
+                { (this.state.currentPage < this.state.totalPages && !this.state.loading)?<LoadMoreBtn onClick={this.loadMoreItems}/>:null}
+
+
             </div>
         )
     }
