@@ -14,8 +14,12 @@ class Movie extends Component {
     }
     render = ()=>{
         return(
-            <div>
-                Movie
+            <div className='rmdb-movie'>
+                <Navigation/>
+                <MovieInfo/>
+                <MovieInfoBar/>
+                <FourColGrid/>
+                <Spinner/>
             </div>
         )
     }
