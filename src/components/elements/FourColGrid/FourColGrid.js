@@ -3,12 +3,13 @@ import './FourColGrid.css';
 
 const fourColGrid = (props) => {
     const renderElements = () => {
-        const gridElements = props.children.map((elements, i) => {
+        const gridElements = props.children.map((element, i) => {
             return (<div key={i} className='rmdb-grid-element'>
-                {elements}
-            </div>)
+                {element}
 
-        });
+            </div>);
+
+        })
         return gridElements;
     }
     return (
