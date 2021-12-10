@@ -56,7 +56,7 @@ class Home extends Component {
         this.fetchItems(endpoint);
     }
     searchItems = (searchTerm) => {
-        console.log(searchTerm);
+
         let endpoint = '';
         this.setState({
             movies: [],
@@ -67,6 +67,7 @@ class Home extends Component {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
         } else {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=1&query=${this.state.searchTerm}&language=en-US`;
+            console.log(endpoint)
         }
 
         this.fetchItems(endpoint)
