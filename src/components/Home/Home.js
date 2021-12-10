@@ -103,7 +103,7 @@ class Home extends Component {
                 </div>
 
                 <Spinner/>
-                <LoadMoreBtn/>
+                <LoadMoreBtn onClick={this.loadMoreItems}/>
             </div>
         )
     }
