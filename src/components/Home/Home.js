@@ -30,7 +30,7 @@ class Home extends Component {
             .then(result => result.json())
             .then(result => {
                 this.setState({
-                    movies: [...this.state.movies, result.results],
+                    movies: [...this.state.movies, ...result.results],
                     heroImage: this.state.heroImage || result.results[0],
                     loading: false,
                     currentPage: result.page,
@@ -49,7 +49,7 @@ class Home extends Component {
         if (this.state.searchTerm === '') {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`;
         } else {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1&query=${this.state.searchTerm}`;
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}&query=${this.state.searchTerm}`;
 
         }
         this.fetchItems(endpoint);
@@ -65,7 +65,7 @@ class Home extends Component {
         if (searchTerm === '') {
             endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
         } else {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1&query=${this.state.searchTerm}`;
+            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&page=1&query=${this.state.searchTerm}&language=en-US`;
         }
         this.fetchItems(endpoint)
     }
