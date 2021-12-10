@@ -3,7 +3,7 @@ import Header from '../elements/Header/Header';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import  Home from '../Home/Home';
 import Movie from "../Movie/Movie";
-
+import NotFound from "../elements/NotFound/NotFound";
 const app = () => {
     return (
         <BrowserRouter>
@@ -11,7 +11,8 @@ const app = () => {
                 <Header/>
                 <Switch>
                     <Route path='/' component={Home} exact/>
-                    <Route path='/:movieId' component={Movie}/>
+                    <Route path='/:movieId' component={Movie} exact/>
+                    <Route path='*' component={NotFound} exact/>
                 </Switch>
             </React.Fragment>
         </BrowserRouter>
