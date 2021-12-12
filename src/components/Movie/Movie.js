@@ -18,6 +18,7 @@ class Movie extends Component {
                 <Navigation/>
                 <MovieInfo/>
                 <MovieInfoBar/>
+
                 <Spinner/>
             </div>
         )

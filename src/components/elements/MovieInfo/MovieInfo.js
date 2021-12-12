@@ -7,7 +7,8 @@ import './MovieInfo.css';
 const movieInfo = (props)=>{
     return (
         <div>
-            MovieInfo
+            <h1> MovieInfo</h1>
+
         </div>
     )
 }
