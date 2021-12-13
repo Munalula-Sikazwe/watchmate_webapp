@@ -19,10 +19,45 @@ class Movie extends Component {
         this.setState({
             loading:true
         })
-        const endpoint =   `${API_URL}movie/${this.props.match.movieId}?api_key=${API_KEY}&language=eng-US`
-        this.fetchItems(endpoint)
+        const endpoint =   `${API_URL}movie/${this.props.match.movieId}?api_key=${API_KEY}&language=eng-US`;
+        this.fetchItems(endpoint);
     }
+    fetchItems = (endpoint)=>{
+        fetch(endpoint)
+            .then(result => result.json())
+            .then(result => {
+                if (result.status_code) {
+                    this.setState({
+                        loading:false
+                    })
+                }
+                else {
+                    this.setState({
+                        movies:result
+                    },
+                        ()=>{
+                          const endpoint = `${API_URL}movie/${this.props.match.movieId}/credits?api_key=${API_KEY}&language=eng-US`;
+                          fetch(endpoint)
+                              .then(result = result.json())
+                              .then(
+                                  result =>{
+                                      const directors = result.crew.filter((member)=> member.job === 'Director');
+                                      this.setState({
+                                          actor:result.cast,
+                                          directors,
+                                          loading:false
+                                      })
+                                  }
+                              )
+                              .catch((error)=>{
+                                  console.log({"Error":error})
+                              })
 
+                        })
+
+                }
+            })
+    }
     render = ()=>{
         return(
             <div className='rmdb-movie'>
