@@ -6,7 +6,9 @@ import './MovieInfo.css';
 
 const movieInfo = (props)=>{
     return (
-        <div>
+        <div className='rmdb-movieinfo' style={{
+            background: props.movie.backdrop_path ? `url('${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.movie.backdrop_path}')`:'#000'
+        }}>
             <h1> MovieInfo</h1>
 
         </div>
