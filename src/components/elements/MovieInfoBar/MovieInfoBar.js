@@ -20,6 +20,11 @@ Budget: {convertMoney(props.budget)}
                     </span>
 
                 </div>
+                <div className='rmdb-movieinfobar-content-col'>
+                    <FontAwesome className='fa-revenue' name='ticket' size='2x'/>
+                    <span className='rmdb-movieinfobar-info' > Revenue : {convertMoney(props.revenue)}</span>
+
+                </div>
             </div>
 
         </div>
