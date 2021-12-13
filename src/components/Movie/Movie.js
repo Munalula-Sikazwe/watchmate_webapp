@@ -10,7 +10,7 @@ import "./Movie.css";
 
 class Movie extends Component {
     state = {
-        movies: null,
+        movie: null,
         actors: null,
         directors: [],
         loading: false
@@ -62,8 +62,18 @@ class Movie extends Component {
     render = () => {
         return (
             <div className='rmdb-movie'>
-                <Navigation/>
-                <MovieInfo/>
+                {this.state.movie ?
+                    <div>
+                        <Navigation movie={this.props.location.movieName}/>
+                        <MovieInfo movie={this.state.movie} directors={this.state.directors}/>
+                        <MovieInfoBar time={this.state.movie.runtime} budget={this.state.movie.budget} revenue={this.state.movie.revenue}/>
+                    </div>
+                    :
+                    null
+                }
+
+
+
                 <MovieInfoBar/>
                 <Spinner/>
             </div>
