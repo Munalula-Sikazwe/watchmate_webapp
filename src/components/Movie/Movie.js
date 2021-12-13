@@ -37,9 +37,9 @@ class Movie extends Component {
                             movies: result
                         },
                         () => {
-                            const endpoint = `${API_URL}movie/${this.props.match.movieId}/credits?api_key=${API_KEY}&language=eng-US`;
+                            const endpoint = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}&language=eng-US`;
                             fetch(endpoint)
-                                .then(result = result.json())
+                                .then(result => result.json())
                                 .then(
                                     result => {
                                         const directors = result.crew.filter((member) => member.job === 'Director');
