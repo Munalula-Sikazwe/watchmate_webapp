@@ -15,6 +15,14 @@ class Movie extends Component {
         directors:[],
         loading:false
     }
+    componentDidMount() {
+        this.setState({
+            loading:true
+        })
+        const endpoint =   `${API_URL}movie/${this.props.match.movieId}?api_key=${API_KEY}&language=eng-US`
+        this.fetchItems(endpoint)
+    }
+
     render = ()=>{
         return(
             <div className='rmdb-movie'>
