@@ -84,8 +84,8 @@ class Movie extends Component {
                         </div>
                         :null
                 }
-                {console.log(this.state.loading)}
-                {/*{(!this.state.actors && !this.state.loading) ? <h1> No movie Found</h1>:null}*/}
+
+                {(!this.state.actors && !this.state.loading) ? <h1> No movie Found</h1>:null}
 
 
                 {this.state.loading ? <Spinner/> : null}
