@@ -44,7 +44,7 @@ class Movie extends Component {
                                     result => {
                                         const directors = result.crew.filter((member) => member.job === 'Director');
                                         this.setState({
-                                            actor: result.cast,
+                                            actors: result.cast,
                                             directors,
                                             loading: false
                                         })
@@ -84,7 +84,8 @@ class Movie extends Component {
                         </div>
                         :null
                 }
-                {!this.state.actors && !this.state.loading ? <h1> No movie Found</h1>:null}
+                {console.log(this.state.loading)}
+                {/*{(!this.state.actors && !this.state.loading) ? <h1> No movie Found</h1>:null}*/}
 
 
                 {this.state.loading ? <Spinner/> : null}
