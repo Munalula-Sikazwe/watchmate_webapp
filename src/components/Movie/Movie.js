@@ -10,7 +10,10 @@ import "./Movie.css";
 
 class Movie extends Component {
     state = {
-
+        movies:null,
+        actors:null,
+        directors:[],
+        loading:false
     }
     render = ()=>{
         return(
@@ -18,7 +21,7 @@ class Movie extends Component {
                 <Navigation/>
                 <MovieInfo/>
                 <MovieInfoBar/>
-
+<FourColGrid/>
                 <Spinner/>
             </div>
         )
