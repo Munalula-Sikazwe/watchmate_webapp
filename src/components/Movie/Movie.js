@@ -17,6 +17,10 @@ class Movie extends Component {
     }
 
     componentDidMount() {
+        if (localStorage.getItem(`${this.props.match.params.movieId}`)){
+            const state = JSON.parse(localStorage.getItem(`${this.props.match.params.movieId}`));
+            this.setState({...state})
+        }
         this.setState({
             loading: true
         })
@@ -47,6 +51,8 @@ class Movie extends Component {
                                             actors: result.cast,
                                             directors,
                                             loading: false
+                                        },()=>{
+                                            localStorage.setItem(`${this.props.match.params.movieId}`)
                                         })
                                     }
                                 )

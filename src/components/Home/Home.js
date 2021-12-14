@@ -46,7 +46,10 @@ class Home extends Component {
 
 
                 },()=>{
-                    localStorage.setItem('homeState',JSON.stringify(this.state))
+                    if (this.state.searchTerm === ""){
+                        localStorage.setItem('homeState',JSON.stringify(this.state))
+                    }
+
                 })
             })
 
