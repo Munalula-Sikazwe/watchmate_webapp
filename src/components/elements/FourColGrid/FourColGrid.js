@@ -23,6 +23,6 @@ const fourColGrid = (props) => {
 }
 fourColGrid.propTypes = {
     header: PropTypes.string,
-    loading: PropTypes.bool
+    loading: PropTypes.bool.isRequired
 }
 export default fourColGrid;
