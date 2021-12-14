@@ -52,7 +52,7 @@ class Movie extends Component {
                                             directors,
                                             loading: false
                                         },()=>{
-                                            localStorage.setItem(`${this.props.match.params.movieId}`)
+                                            localStorage.setItem(`${this.props.match.params.movieId}`,JSON.stringify(this.state))
                                         })
                                     }
                                 )
