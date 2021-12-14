@@ -19,9 +19,16 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.setState({loading: true})
-        const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-        this.fetchItems(endpoint)
+        if (localStorage.getItem('homeState')){
+            const state = JSON.parse(localStorage.getItem('homeState'))
+            this.setState({...state})
+
+        }else{
+            this.setState({loading: true})
+            const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+            this.fetchItems(endpoint)
+        }
+
 
     }
 
@@ -39,7 +46,7 @@ class Home extends Component {
 
 
                 },()=>{
-                    localStorage.setItem('Homestate',JSON.stringify(this.state))
+                    localStorage.setItem('homeState',JSON.stringify(this.state))
                 })
             })
 
