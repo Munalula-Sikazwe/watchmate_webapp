@@ -34,7 +34,7 @@ class Movie extends Component {
                     })
                 } else {
                     this.setState({
-                            movies: result
+                            movie: result
                         },
                         () => {
                             const endpoint = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}&language=eng-US`;
