@@ -38,6 +38,8 @@ class Home extends Component {
                     totalPages: result.total_pages,
 
 
+                },()=>{
+                    localStorage.setItem('Homestate',JSON.stringify(this.state))
                 })
             })
 
