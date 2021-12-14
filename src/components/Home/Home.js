@@ -29,7 +29,7 @@ class Home extends Component {
         fetch(endpoint)
             .then(result => result.json())
             .then(result => {
-                console.log(result.results)
+
                 this.setState({
                     movies: [...this.state.movies, ...result.results],
                     heroImage: this.state.heroImage || result.results[0],

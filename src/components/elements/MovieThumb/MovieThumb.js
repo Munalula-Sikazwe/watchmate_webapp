@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const movieThumb = (props) => {
     return (
         <div className='rmdb-moviethumb'>
-            {console.log(props.movieName)}
+
             {props.clickable ?
                 <Link to={{
                     pathname: `/${props.movieId}`,
