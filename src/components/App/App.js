@@ -6,7 +6,7 @@ import Movie from "../Movie/Movie";
 import NotFound from "../elements/NotFound/NotFound";
 const app = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={'/watchmate_webapp/'}>
             <React.Fragment>
                 <Header/>
                 <Switch>

@@ -2,10 +2,12 @@
   "name": "react_movie_db_course",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://munalula-sikazwe.github.io/watchmate_webapp",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "gh-pages": "^3.2.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-fontawesome": "^1.6.1",
@@ -16,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
