@@ -6,7 +6,7 @@ import MovieThumb from "../elements/MovieThumb/MovieThumb";
 import Spinner from "../elements/Spinner/Spinner";
 import LoadMoreBtn from "../elements/LoadMoreBtn/LoadMoreBtn";
 import './Home.css';
-import {API_KEY, API_URL, IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE} from "../../config";
+import {API_KEY, API_URL, BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE} from "../../config";
 
 class Home extends Component {
     state = {
@@ -19,11 +19,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem('homeState')){
+        if (localStorage.getItem('homeState')) {
             const state = JSON.parse(localStorage.getItem('homeState'))
             this.setState({...state})
 
-        }else{
+        } else {
             this.setState({loading: true})
             const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
             this.fetchItems(endpoint)
@@ -32,26 +32,22 @@ class Home extends Component {
 
     }
 
-    fetchItems = (endpoint) => {
-        fetch(endpoint)
-            .then(result => result.json())
-            .then(result => {
-
-                this.setState({
-                    movies: [...this.state.movies, ...result.results],
-                    heroImage: this.state.heroImage || result.results[0],
-                    loading: false,
-                    currentPage: result.page,
-                    totalPages: result.total_pages,
+    fetchItems = async (endpoint) => {
+        const result = await (await fetch(endpoint)).json()
+        this.setState({
+            movies: [...this.state.movies, ...result.results],
+            heroImage: this.state.heroImage || result.results[0],
+            loading: false,
+            currentPage: result.page,
+            totalPages: result.total_pages,
 
 
-                },()=>{
-                    if (this.state.searchTerm === ""){
-                        localStorage.setItem('homeState',JSON.stringify(this.state))
-                    }
+        }, () => {
+            if (this.state.searchTerm === "") {
+                localStorage.setItem('homeState', JSON.stringify(this.state))
+            }
 
-                })
-            })
+        })
 
     }
     loadMoreItems = () => {
@@ -115,9 +111,10 @@ class Home extends Component {
                         })}
                     </FourColGrid>
                 </div>
-                { this.state.loading? <Spinner/> : null}
+                {this.state.loading ? <Spinner/> : null}
 
-                { (this.state.currentPage < this.state.totalPages && !this.state.loading)?<LoadMoreBtn onClick={this.loadMoreItems}/>:null}
+                {(this.state.currentPage < this.state.totalPages && !this.state.loading) ?
+                    <LoadMoreBtn onClick={this.loadMoreItems}/> : null}
 
 
             </div>
