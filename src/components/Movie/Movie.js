@@ -28,10 +28,10 @@ class Movie extends Component {
         this.fetchItems(endpoint);
     }
 
-    fetchItems = (endpoint) => {
-        fetch(endpoint)
-            .then(result => result.json())
-            .then(result => {
+    fetchItems = async (endpoint) => {
+       const result = await( await fetch(endpoint)).json()
+
+
                 if (result.status_code) {
                     this.setState({
                         loading: false
@@ -40,11 +40,12 @@ class Movie extends Component {
                     this.setState({
                             movie: result
                         },
-                        () => {
+                        async () => {
                             const endpoint = `${API_URL}movie/${this.props.match.params.movieId}/credits?api_key=${API_KEY}&language=eng-US`;
-                            fetch(endpoint)
-                                .then(result => result.json())
-                                .then(
+
+                            const result = await (await fetch(endpoint)).json()
+
+
                                     result => {
                                         const directors = result.crew.filter((member) => member.job === 'Director');
                                         this.setState({
@@ -55,15 +56,11 @@ class Movie extends Component {
                                             localStorage.setItem(`${this.props.match.params.movieId}`,JSON.stringify(this.state))
                                         })
                                     }
-                                )
-                                .catch((error) => {
-                                    console.log({"Error": error})
-                                })
 
                         })
 
                 }
-            })
+
     }
     render = () => {
         return (
