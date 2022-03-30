@@ -79,7 +79,7 @@ class Home extends Component {
             this.fetchItems(endpoint);
         }
 
-        this.fetchItems(endpoint)
+
     }
 
     render() {
