@@ -65,16 +65,18 @@ class Home extends Component {
     }
     searchItems = (searchTerm) => {
 
-        let endpoint = '';
+
         this.setState({
             movies: [],
             loading: true,
             searchTerm
         })
         if (searchTerm === '') {
-            endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+            let endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+            this.fetchItems(endpoint);
         } else {
-            endpoint = `${API_URL}search/movie?api_key=${API_KEY}&page=1&query=${this.state.searchTerm}&language=en-US`
+            let endpoint = `${API_URL}search/movie?api_key=${API_KEY}&page=1&query=${this.state.searchTerm}&language=en-US`;
+            this.fetchItems(endpoint);
         }
 
         this.fetchItems(endpoint)
